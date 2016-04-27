@@ -1,4 +1,4 @@
-var arrayX = [
+var arrayXs = [
 				0.0,0.0,0.0,0.0,0.0,
 				0.0,1.0,1.0,0.0,0.0,
 				0.0,0.0,1.0,0.0,0.0,
@@ -13,6 +13,14 @@ var arrayXr = [
 				0.0,1.0,0.0,1.0,0.0,
 				0.0,1.0,1.0,1.0,0.0,
 			 ]
+
+var zad1 = [
+			0.0,1.0,0.0,0.0,0.0,
+			0.0,0.0,0.0,1.0,0.0,
+			1.0,0.0,1.0,0.0,0.0,
+			0.0,0.0,0.0,0.0,1.0,
+			0.0,1.0,0.0,0.0,0.0
+			]
 
 function calcTheta(v){
 	var sum = 0
@@ -59,7 +67,7 @@ function generateRandomV(){
 				]
 	var result = []
 	for (var i =0; i<25; i++) {
-		vec[i] = Math.round( vec[i] * 10000 ) / 10;  
+		vec[i] = Math.round( vec[i] * 100 );  
 		if (vec[i] % 2 == 0) {
 			result.push(1.0);
 		} else {
@@ -109,7 +117,7 @@ function generateNextV2(prev, vecC, vecD){
 
 		var temp = [vecC[i],vecD[i]]
 		uit -= calcTheta2(temp[0],temp[1])
-		
+
 		if (uit>0) {
 			vec.push(1.0);
 		} else {
@@ -138,16 +146,22 @@ function print(v){
 	}
 }
 
-var vecC = calcC(arrayX)
+var vecC = calcC(arrayXs)
 
 var vecD = calcC(arrayXr)
 
 var vecX = generateRandomV()
-
+//vexX = zad1				// <- zamiast randoma odgornie zadany :)
 print(vecX)
 
-console.log("\n")
+setInterval(function(){
 
-vecX = generateNextV2(vecX, vecC, vecD)
+	console.log("\n")
+	//vecX = generateNextV(vecX, vecC) 				// <- tutaj w zaleznosci jaki to wektor ten lub nizej :)
+	vecX = generateNextV2(vecX, vecC, vecD)
+	print(vecX);
 
-print(vecX);
+}, 1000);
+
+
+
