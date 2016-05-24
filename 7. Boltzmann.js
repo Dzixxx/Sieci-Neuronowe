@@ -1,7 +1,7 @@
 var tZero = 1.0
 //zmianiac oba gdy chodzi o temperature
-var temperature = 100.0
-var time = 100.0
+var temperature = 1.0
+var time = 1.0
 
 function calculateTheta(vector){
 	var sum = 0.0;
